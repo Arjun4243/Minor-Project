@@ -31,7 +31,7 @@
     <main>
         <div class="container">
             <div class="left">
-                <a class="profile">
+                <a class="profile">P
                     <div class="profile-picture">
                         <img src="image/profilephoto.jpeg" alt="">
                     </div>
@@ -139,13 +139,11 @@
                         <p class="name">Hawkaye</p>
                     </div>
                 </div>
-
 <!-- Create post -->
-<!-- Create post -->
-<div class="create_post_div" style="z-index:9;">
+<div class="create_post_div" style="z-index: 9;">
     <div class="post_title">
         <h3 id="create_post_div">Create Post</h3>
-        <i class="fa-solid fa-xmark" style="color: #606e85; margin: 1rem; width: inherit;" onclick="create_post_close()"></i>
+        <i class="fa-solid fa-xmark" style="color: #606e85; margin: 1rem; width: inherit;" onclick="create_post_close(),closeCamera()"></i>
     </div>
 
     <div id="create_post_main_div">
@@ -162,24 +160,46 @@
     <div class="add_to_your_post">
         <h4>Add to your post</h4>
         <div class="add_to_image_camera">
-            <i class="fa-solid fa-image" style="color: #24a355;font-size: 24px; cursor: pointer;" id="add_to_image"></i>
-            <i class="fa-solid fa-camera-retro" style="color: #606e85; font-size: 24px; cursor: pointer;" onclick="openCamera()"></i>
+        <label for="add_to_post_gallary">
+            <i class="fa-solid fa-image" style="color: #24a355;font-size: 24px; cursor: pointer;" id="add_to_post_image_input"></i>
+            <input type="file" id="add_to_post_gallary" style="display:none" onchange="add_to_post_input_image_call()">
+
+
+        </label>       
+
+         <i class="fa-solid fa-camera-retro" style="color: #606e85; font-size: 24px; cursor: pointer;" onclick="openCamera()"></i>
         </div>
     </div>
+
+  <!-- New div to display captured image -->
+<div id="capturedImageContainer" style=" position: relative;">
+    <!-- Image will be appended here -->
+
+    <!-- Delete icon -->
+    <i class="fa-solid fa-trash" style="color: #ff0000; position: absolute; top: 5px; right: 5px; cursor: pointer; font-size: 20px; display: none;" onclick="deleteCapturedImage()" id="deleteImageIcon"></i>
+
+<div class="add_to_post_image_output"><!-- here comes the image from the gallery --></div>
+
+</div>
+
 
     <!-- Video frame with close button -->
     <div style="position: relative;">
         <video id="cameraFeed" style="width: 95%; margin: 1rem; margin-top: -16rem; display: none;"></video>
         <i class="fa-solid fa-xmark" style="color: #606e85; position: absolute; top: 5px; right: 18px; cursor: pointer; font-size: 20px; display: none;" onclick="closeCamera()" id="close_camera_button"></i>
-    
     </div>
 
-    <div class="create_post">
+    <div class="create_post" onclick="closeCamera()">
         post
     </div>
-</div>
 
+    <button onclick="captureImage(),closeCamera()" >Capture Image</button>
+
+    <!-- New div to display captured image -->
+
+</div>
 <!-- Create post -->
+
    
 
 

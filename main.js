@@ -265,8 +265,6 @@ function create_post_close(){
     var create_post = document.querySelector(".create_post_div");
     create_post.style.display = "none";
 }
-
-
 function openCamera() {
     const video = document.getElementById('cameraFeed');
 
@@ -277,9 +275,8 @@ function openCamera() {
                 video.style.display = "block"; // Make sure the video element is visible
                 video.play();
 
-                const close=document.getElementById('close_camera_button');
-                close.style.display="block"
-            
+                const close = document.getElementById('close_camera_button');
+                close.style.display = "block";
             })
             .catch(function (err) {
                 console.log(err);
@@ -290,17 +287,94 @@ function openCamera() {
 }
 
 function closeCamera() {
+    console.log("Closing camera");
+
     const video = document.getElementById('cameraFeed');
-    
-    const close=document.getElementById('close_camera_button');
-    close.style.display="none"
+    const close = document.getElementById('close_camera_button');
+    close.style.display = "none";
 
     // Pause and stop the video stream
     const stream = video.srcObject;
-    const tracks = stream.getTracks();
+    if (stream) {
+        const tracks = stream.getTracks();
 
-    tracks.forEach(track => track.stop());
+        tracks.forEach(track => track.stop());
 
-    video.srcObject = null;
-    video.style.display = "none"; // Hide the video element
+        video.srcObject = null;
+        video.style.display = "none"; // Hide the video element
+    } else {
+        console.log("No video stream to close");
+    }
+}
+
+
+function captureImage() {
+    const video = document.getElementById('cameraFeed');
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d');
+
+    // Set the canvas dimensions to match the video feed
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+
+    // Draw the current video frame onto the canvas
+    context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+    // Convert the canvas content to a data URL representing the captured image
+    const imageDataUrl = canvas.toDataURL('image/png');
+
+    // Display the captured image in the designated div
+    const capturedImageContainer = document.getElementById('capturedImageContainer');
+    const capturedImage = new Image(); // Create a new Image object
+    capturedImage.src = imageDataUrl;
+
+    // Set the width and height of the captured image
+    const maxWidth = 250; // Adjust this value as needed
+    const maxHeight = 200; // Adjust this value as needed
+
+    // Calculate new dimensions while maintaining the aspect ratio
+    let newWidth, newHeight;
+    if (canvas.width > canvas.height) {
+        newWidth = maxWidth;
+        newHeight = (canvas.height / canvas.width) * maxWidth;
+    } else {
+        newHeight = maxHeight;
+        newWidth = (canvas.width / canvas.height) * maxHeight;
+    }
+
+    capturedImage.width = newWidth;
+    capturedImage.height = newHeight;
+    capturedImage.style.margin="1rem";
+
+    capturedImageContainer.innerHTML = ''; // Clear the container before appending
+    capturedImageContainer.appendChild(capturedImage);
+
+    // Clean up: You can hide the video feed if needed
+    video.style.display = 'none';
+}
+function add_to_post_input_image_call() {
+    const add_to_post_input_image = document.querySelector('#add_to_post_gallary');
+    const add_to_post_output_image = document.querySelector('.add_to_post_image_output');
+
+    const selectedFile = add_to_post_input_image.files[0];
+
+    if (selectedFile) {
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+            add_to_post_output_image.innerHTML = ''; // Clear previous content
+            const image = new Image();
+            image.src = e.target.result;
+
+            // Set the width and height of the displayed image
+            image.width = 300; // Set your desired width
+            image.height = 200; // Set your desired height
+
+            add_to_post_output_image.appendChild(image);
+        };
+
+        reader.readAsDataURL(selectedFile);
+    } else {
+        console.error('No file selected.');
+    }
 }
