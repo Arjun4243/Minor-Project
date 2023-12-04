@@ -22,8 +22,13 @@
             <div class="create">
                 <label class="btn btn-primary" for="create-post">babe</label>
                 <div class="profile-picture">
-                    <img src="image/profilephoto.jpeg" alt="">
+                    <label for="profile-picture_image_input" id="profile-picture_image">
+                        <img src="image\Login background.jpg">
+
+                    </label>
+                    <input type="file" id="profile-picture_image_input" style="display: none;">
                 </div>
+
             </div>
     </nav>
     <!--Nav bar section end-->
@@ -139,68 +144,77 @@
                         <p class="name">Hawkaye</p>
                     </div>
                 </div>
-<!-- Create post -->
-<div class="create_post_div" style="z-index: 9;">
-    <div class="post_title">
-        <h3 id="create_post_div">Create Post</h3>
-        <i class="fa-solid fa-xmark" style="color: #606e85; margin: 1rem; width: inherit;" onclick="create_post_close(),closeCamera()"></i>
-    </div>
+                <!-- Create post -->
+                <div class="create_post_div" style="z-index: 9;">
+                    <div class="post_title">
+                        <h3 id="create_post_div">Create Post</h3>
+                        <i class="fa-solid fa-xmark" style="color: #606e85; margin: 1rem; width: inherit;"
+                            onclick="create_post_close(),closeCamera()"></i>
+                    </div>
 
-    <div id="create_post_main_div">
-        <div class="create_post_profile_name">
-            <div class="create_post_profile">
-                <img src="image\profilephoto.jpeg" alt="Profile Photo">
-            </div>
-            <h3>doramon</h3>
-        </div>
-    </div>
+                    <div id="create_post_main_div">
+                        <div class="create_post_profile_name">
+                            <div class="create_post_profile">
+                                <img src="image\profilephoto.jpeg" alt="Profile Photo">
+                            </div>
+                            <h3>doramon</h3>
+                        </div>
+                    </div>
 
-    <textarea placeholder="Write Something" id="create_post_main_div_input"></textarea>
+                    <textarea placeholder="Write Something" id="create_post_main_div_input"></textarea>
 
-    <div class="add_to_your_post">
-        <h4>Add to your post</h4>
-        <div class="add_to_image_camera">
-        <label for="add_to_post_gallary">
-            <i class="fa-solid fa-image" style="color: #24a355;font-size: 24px; cursor: pointer;" id="add_to_post_image_input"></i>
-            <input type="file" id="add_to_post_gallary" style="display:none" onchange="add_to_post_input_image_call()">
-
-
-        </label>       
-
-         <i class="fa-solid fa-camera-retro" style="color: #606e85; font-size: 24px; cursor: pointer;" onclick="openCamera()"></i>
-        </div>
-    </div>
-
-  <!-- New div to display captured image -->
-<div id="capturedImageContainer" style=" position: relative;">
-    <!-- Image will be appended here -->
-
-    <!-- Delete icon -->
-    <i class="fa-solid fa-trash" style="color: #ff0000; position: absolute; top: 5px; right: 5px; cursor: pointer; font-size: 20px; display: none;" onclick="deleteCapturedImage()" id="deleteImageIcon"></i>
-
-<div class="add_to_post_image_output"><!-- here comes the image from the gallery --></div>
-
-</div>
+                    <div class="add_to_your_post">
+                        <h4>Add to your post</h4>
+                        <div class="add_to_image_camera">
+                            <label for="add_to_post_gallary">
+                                <i class="fa-solid fa-image" style="color: #24a355;font-size: 24px; cursor: pointer;"
+                                    id="add_to_post_image_input"></i>
+                                <input type="file" id="add_to_post_gallary" style="display:none"
+                                    onchange="add_to_post_input_image_call()">
 
 
-    <!-- Video frame with close button -->
-    <div style="position: relative;">
-        <video id="cameraFeed" style="width: 95%; margin: 1rem; margin-top: -16rem; display: none;"></video>
-        <i class="fa-solid fa-xmark" style="color: #606e85; position: absolute; top: 5px; right: 18px; cursor: pointer; font-size: 20px; display: none;" onclick="closeCamera()" id="close_camera_button"></i>
-    </div>
+                            </label>
 
-    <div class="create_post" onclick="closeCamera()">
-        post
-    </div>
+                            <i class="fa-solid fa-camera-retro"
+                                style="color: #606e85; font-size: 24px; cursor: pointer;" onclick="openCamera()"></i>
+                        </div>
+                    </div>
 
-    <button onclick="captureImage(),closeCamera()" >Capture Image</button>
+                    <!-- New div to display captured image -->
+                    <div id="capturedImageContainer" style=" position: relative;">
+                        <!-- Image will be appended here -->
 
-    <!-- New div to display captured image -->
+                        <!-- Delete icon -->
+                        <i class="fa-solid fa-trash"
+                            style="color: #ff0000; position: absolute; top: 5px; right: 5px; cursor: pointer; font-size: 20px; display: none;"
+                            onclick="deleteCapturedImage()" id="deleteImageIcon"></i>
 
-</div>
-<!-- Create post -->
+                        <div class="add_to_post_image_output"><!-- here comes the image from the gallery --></div>
 
-   
+                    </div>
+
+
+                    <!-- Video frame with close button -->
+                    <div style="position: relative;">
+                        <video id="cameraFeed"
+                            style="width: 95%; margin: 1rem; margin-top: -16rem; display: none;"></video>
+                        <i class="fa-solid fa-xmark"
+                            style="color: #606e85; position: absolute; top: 5px; right: 18px; cursor: pointer; font-size: 20px; display: none;"
+                            onclick="closeCamera()" id="close_camera_button"></i>
+                    </div>
+
+                    <div class="create_post" onclick="closeCamera()">
+                        post
+                    </div>
+
+                    <button onclick="captureImage(),closeCamera()">Capture Image</button>
+
+                    <!-- New div to display captured image -->
+
+                </div>
+                <!-- Create post -->
+
+
 
 
 
@@ -210,292 +224,27 @@
                         <img src="image/profilephoto.jpeg" alt="">
                     </div>
                     <input type="text" placeholder="Write your amazing thoughts" id="create-post">
-                    <input type="submit" value="Post" class="btn btn-primary" onclick="call_post(); event.preventDefault();">
+                    <input type="submit" value="Post" class="btn btn-primary"
+                        onclick="call_post(); event.preventDefault();">
 
                 </form>
+
+
+
+
                 <!--Feeds start-->
-                <!--Feeds l-->
                 <div class="feeds">
-                    <div class="feed">
-                        <div class="head">
-                            <div class="user">
-                                <div class="profile-picture">
-                                    <img src="image/profilephoto.jpeg" alt="">
-                                </div>
-                                <div class="ingo">
-                                    <h3>Superman</h3>
-                                    <small>India, 15 minutes ago</small>
-                                </div>
-                            </div>
-                            <span class="edit">
-                                <i class="fa-solid fa-ellipsis"></i>
-                            </span>
-                        </div>
-                        <div class="photo">
-                            <img src="image/profilephoto.jpeg" alt="">
-                        </div>
-                        <div class="action-button">
-                            <div class="interaction-buttons">
-                                <span><i class="fa-regular fa-heart"></i></span>
-                                <span><i class="fa-regular fa-comment"></i></span>
-                                <span><i class="fa-solid fa-share"></i></span>
-                            </div>
-                            <div class="bookmark">
-                                <span><i class="fa-regular fa-bookmark"></i></span>
-                            </div>
-                        </div>
-                        <div class="liked-by">
-                            <span><img src="image/profilephoto.jpeg" alt=""></span>
-                            <span><img src="image/profilephoto.jpeg" alt=""></span>
-                            <span><img src="image/profilephoto.jpeg" alt=""></span>
-                            <p>Liked by <b>wonder women</b>,<b>Batman</b> and <b>110 others</b> </p>
-                        </div>
-                        <div class="caption">
-                            <p><b>Deadpool</b>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                            <span class="harsh-tag">
-                                #Lifestyle
-                            </span>
-                            <div class="comments text-muted">
-                                View all 20 comments
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="feeds">
-                    <div class="feed">
-                        <div class="head">
-                            <div class="user">
-                                <div class="profile-picture">
-                                    <img src="image/profilephoto.jpeg" alt="">
-                                </div>
-                                <div class="ingo">
-                                    <h3>Superman</h3>
-                                    <small>India, 15 minutes ago</small>
-                                </div>
-                            </div>
-                            <span class="edit">
-                                <i class="fa-solid fa-ellipsis"></i>
-                            </span>
-                        </div>
-                        <div class="photo">
-                            <img src="image/profilephoto.jpeg" alt="">
-                        </div>
-                        <div class="action-button">
-                            <div class="interaction-buttons">
-                                <span><i class="fa-regular fa-heart"></i></span>
-                                <span><i class="fa-regular fa-comment"></i></span>
-                                <span><i class="fa-solid fa-share"></i></span>
-                            </div>
-                            <div class="bookmark">
-                                <span><i class="fa-regular fa-bookmark"></i></span>
-                            </div>
-                        </div>
-                        <div class="liked-by">
-                            <span><img src="image/profilephoto.jpeg" alt=""></span>
-                            <span><img src="image/profilephoto.jpeg" alt=""></span>
-                            <span><img src="image/profilephoto.jpeg" alt=""></span>
-                            <p>Liked by <b>wonder women</b>,<b>Batman</b> and <b>110 others</b> </p>
-                        </div>
-                        <div class="caption">
-                            <p><b>Deadpool</b>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                            <span class="harsh-tag">
-                                #Lifestyle
-                            </span>
-                            <div class="comments text-muted">
-                                View all 20 comments
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="feeds">
-                    <div class="feed">
-                        <div class="head">
-                            <div class="user">
-                                <div class="profile-picture">
-                                    <img src="image/profilephoto.jpeg" alt="">
-                                </div>
-                                <div class="ingo">
-                                    <h3>Superman</h3>
-                                    <small>India, 15 minutes ago</small>
-                                </div>
-                            </div>
-                            <span class="edit">
-                                <i class="fa-solid fa-ellipsis"></i>
-                            </span>
-                        </div>
-                        <div class="photo">
-                            <img src="image/profilephoto.jpeg" alt="">
-                        </div>
-                        <div class="action-button">
-                            <div class="interaction-buttons">
-                                <span><i class="fa-regular fa-heart"></i></span>
-                                <span><i class="fa-regular fa-comment"></i></span>
-                                <span><i class="fa-solid fa-share"></i></span>
-                            </div>
-                            <div class="bookmark">
-                                <span><i class="fa-regular fa-bookmark"></i></span>
-                            </div>
-                        </div>
-                        <div class="liked-by">
-                            <span><img src="image/profilephoto.jpeg" alt=""></span>
-                            <span><img src="image/profilephoto.jpeg" alt=""></span>
-                            <span><img src="image/profilephoto.jpeg" alt=""></span>
-                            <p>Liked by <b>wonder women</b>,<b>Batman</b> and <b>110 others</b> </p>
-                        </div>
-                        <div class="caption">
-                            <p><b>Deadpool</b>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                            <span class="harsh-tag">
-                                #Lifestyle
-                            </span>
-                            <div class="comments text-muted">
-                                View all 20 comments
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="feeds">
-                    <div class="feed">
-                        <div class="head">
-                            <div class="user">
-                                <div class="profile-picture">
-                                    <img src="image/profilephoto.jpeg" alt="">
-                                </div>
-                                <div class="ingo">
-                                    <h3>Superman</h3>
-                                    <small>India, 15 minutes ago</small>
-                                </div>
-                            </div>
-                            <span class="edit">
-                                <i class="fa-solid fa-ellipsis"></i>
-                            </span>
-                        </div>
-                        <div class="photo">
-                            <img src="image/profilephoto.jpeg" alt="">
-                        </div>
-                        <div class="action-button">
-                            <div class="interaction-buttons">
-                                <span><i class="fa-regular fa-heart"></i></span>
-                                <span><i class="fa-regular fa-comment"></i></span>
-                                <span><i class="fa-solid fa-share"></i></span>
-                            </div>
-                            <div class="bookmark">
-                                <span><i class="fa-regular fa-bookmark"></i></span>
-                            </div>
-                        </div>
-                        <div class="liked-by">
-                            <span><img src="image/profilephoto.jpeg" alt=""></span>
-                            <span><img src="image/profilephoto.jpeg" alt=""></span>
-                            <span><img src="image/profilephoto.jpeg" alt=""></span>
-                            <p>Liked by <b>wonder women</b>,<b>Batman</b> and <b>110 others</b> </p>
-                        </div>
-                        <div class="caption">
-                            <p><b>Deadpool</b>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                            <span class="harsh-tag">
-                                #Lifestyle
-                            </span>
-                            <div class="comments text-muted">
-                                View all 20 comments
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="feeds">
-                    <div class="feed">
-                        <div class="head">
-                            <div class="user">
-                                <div class="profile-picture">
-                                    <img src="image/profilephoto.jpeg" alt="">
-                                </div>
-                                <div class="ingo">
-                                    <h3>Superman</h3>
-                                    <small>India, 15 minutes ago</small>
-                                </div>
-                            </div>
-                            <span class="edit">
-                                <i class="fa-solid fa-ellipsis"></i>
-                            </span>
-                        </div>
-                        <div class="photo">
-                            <img src="image/profilephoto.jpeg" alt="">
-                        </div>
-                        <div class="action-button">
-                            <div class="interaction-buttons">
-                                <span><i class="fa-regular fa-heart"></i></span>
-                                <span><i class="fa-regular fa-comment"></i></span>
-                                <span><i class="fa-solid fa-share"></i></span>
-                            </div>
-                            <div class="bookmark">
-                                <span><i class="fa-regular fa-bookmark"></i></span>
-                            </div>
-                        </div>
-                        <div class="liked-by">
-                            <span><img src="image/profilephoto.jpeg" alt=""></span>
-                            <span><img src="image/profilephoto.jpeg" alt=""></span>
-                            <span><img src="image/profilephoto.jpeg" alt=""></span>
-                            <p>Liked by <b>wonder women</b>,<b>Batman</b> and <b>110 others</b> </p>
-                        </div>
-                        <div class="caption">
-                            <p><b>Deadpool</b>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                            <span class="harsh-tag">
-                                #Lifestyle
-                            </span>
-                            <div class="comments text-muted">
-                                View all 20 comments
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="feeds">
-                    <div class="feed">
-                        <div class="head">
-                            <div class="user">
-                                <div class="profile-picture">
-                                    <img src="image/profilephoto.jpeg" alt="">
-                                </div>
-                                <div class="ingo">
-                                    <h3>Superman</h3>
-                                    <small>India, 15 minutes ago</small>
-                                </div>
-                            </div>
-                            <span class="edit">
-                                <i class="fa-solid fa-ellipsis"></i>
-                            </span>
-                        </div>
-                        <div class="photo">
-                            <img src="image/profilephoto.jpeg" alt="">
-                        </div>
-                        <div class="action-button">
-                            <div class="interaction-buttons">
-                                <span><i class="fa-regular fa-heart"></i></span>
-                                <span><i class="fa-regular fa-comment"></i></span>
-                                <span><i class="fa-solid fa-share"></i></span>
-                            </div>
-                            <div class="bookmark">
-                                <span><i class="fa-regular fa-bookmark"></i></span>
-                            </div>
-                        </div>
-                        <div class="liked-by">
-                            <span><img src="image/profilephoto.jpeg" alt=""></span>
-                            <span><img src="image/profilephoto.jpeg" alt=""></span>
-                            <span><img src="image/profilephoto.jpeg" alt=""></span>
-                            <p>Liked by <b>wonder women</b>,<b>Batman</b> and <b>110 others</b> </p>
-                        </div>
-                        <div class="caption">
-                            <p><b>Deadpool</b>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                            <span class="harsh-tag">
-                                #Lifestyle
-                            </span>
-                            <div class="comments text-muted">
-                                View all 20 comments
-                            </div>
-                        </div>
-                    </div>
 
 
                 </div>
 
                 <!--create post-->
                 <!--Feeds end-->
+
+
+
+
+
             </div>
             <div class="right">
                 <div class="messages">
@@ -505,7 +254,7 @@
                     <!--Search-Bar-->
                     <div class="search-bar">
                         <i class="fa-solid fa-magnifying-glass-plus"></i>
-                        <input type="search" placeholder="Search messages" id="message-search">
+                        <input type="search" placeholder="Search messages" id="message-search" onkeyup="myfun()">
                     </div>
                     <!--Messages category-->
                     <div class="category">
@@ -519,7 +268,7 @@
                             <img src="image/profilephoto.jpeg" alt="">
                         </div>
                         <div class="message-body">
-                            <h5>Wolverine</h5>
+                            <h5 class="message-body-text">iron man</h5>
                             <p class="text-muted">I'm in deadpool 3.</p>
                         </div>
                     </div>
@@ -528,7 +277,7 @@
                             <img src="image/profilephoto.jpeg" alt="">
                         </div>
                         <div class="message-body">
-                            <h5>Wolverine</h5>
+                            <h5 class="message-body-text">Wolverine</h5>
                             <p class="text-muted">I'm in deadpool 3.</p>
                         </div>
                     </div>
@@ -537,7 +286,7 @@
                             <img src="image/profilephoto.jpeg" alt="">
                         </div>
                         <div class="message-body">
-                            <h5>Wolverine</h5>
+                            <h5 class="message-body-text">Hulk</h5>
                             <p class="text-muted">I'm in deadpool 3.</p>
                         </div>
                     </div>
@@ -546,7 +295,7 @@
                             <img src="image/profilephoto.jpeg" alt="">
                         </div>
                         <div class="message-body">
-                            <h5>Deadpool</h5>
+                            <h5 class="message-body-text">Deadpool</h5>
                             <p class="text-muted">I'm in deadpool 3.</p>
                         </div>
                     </div>
@@ -555,7 +304,7 @@
                             <img src="image/profilephoto.jpeg" alt="">
                         </div>
                         <div class="message-body">
-                            <h5>Wolverine</h5>
+                            <h5 class="message-body-text">Wolverine</h5>
                             <p class="text-muted">I'm in deadpool 3.</p>
                         </div>
                     </div>
@@ -564,7 +313,7 @@
                             <img src="image/profilephoto.jpeg" alt="">
                         </div>
                         <div class="message-body">
-                            <h5>Wolverine</h5>
+                            <h5 class="message-body-text">Tom</h5>
                             <p class="text-muted">I'm in deadpool 3.</p>
                         </div>
                     </div>
@@ -573,13 +322,27 @@
                             <img src="image/profilephoto.jpeg" alt="">
                         </div>
                         <div class="message-body">
-                            <h5>Wolverine</h5>
+                            <h5 class="message-body-text">jarry</h5>
                             <p class="text-muted">I'm in deadpool 3.</p>
                         </div>
                     </div>
 
+                    <div class="message">
+                        <div class="profile-picture">
+                            <img src="image/profilephoto.jpeg" alt="">
+                        </div>
+                        <div class="message-body">
+                            <h5 class="message-body-text">jarry</h5>
+                            <p class="text-muted">I'm in deadpool 3.</p>
+                        </div>
+                    </div>
+
+
+
                 </div>
                 <!--Messages end-->
+
+
                 <!--Friend request-->
                 <div class="friend-requests">
                     <h4>Requests</h4>
