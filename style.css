@@ -114,7 +114,7 @@ nav .container {
     padding: var(--search-padding);
 }
 
-.search-bar input[type="search"] {
+.search-bar int[type="search"] {
     background: transparent;
     width: 30vw;
     margin-left: 1rem;
@@ -848,3 +848,17 @@ create poost styling*/
 }
 
 
+
+.profile-picture:hover #profile-picture_image {
+    /* Define your hover styles here */
+    border: 2px solid blue;
+    cursor: pointer; /* Change cursor on hover to indicate interactivity */
+}
+
+
+.message {
+    display: none;
+}
+.visible {
+    display: block;
+}

@@ -261,7 +261,7 @@ function call_post() {
     create_post.style.display = "block";
 }
 
-function create_post_close(){
+function create_post_close() {
     var create_post = document.querySelector(".create_post_div");
     create_post.style.display = "none";
 }
@@ -344,7 +344,7 @@ function captureImage() {
 
     capturedImage.width = newWidth;
     capturedImage.height = newHeight;
-    capturedImage.style.margin="1rem";
+    capturedImage.style.margin = "1rem";
 
     capturedImageContainer.innerHTML = ''; // Clear the container before appending
     capturedImageContainer.appendChild(capturedImage);
@@ -378,3 +378,148 @@ function add_to_post_input_image_call() {
         console.error('No file selected.');
     }
 }
+
+
+
+//dynamice create post start
+document.querySelector('.create_post').addEventListener("click", () => {
+    const node = document.createElement("div");
+    node.classList.add('feeds');
+
+    const htmldata = `  
+          <div class="feed">
+    <div class="head">
+        <div class="user">
+            <div class="profile-picture">
+                <img src="image/profilephoto.jpeg" alt="">
+            </div>
+            <div class="ingo">
+                <h3>Superman</h3>
+                <small>India, 15 minutes ago</small>
+            </div>
+        </div>
+        <span class="edit delete">
+        <i class="fa-solid fa-xmark" style="color: #606e85; margin: 1rem; margin-right: 1rem; width: inherit;"></i>
+             
+            <i class="fa-solid fa-ellipsis"></i>
+        </span>
+    </div>
+
+    <div class="add_to_post_image_output">
+    <div class="photo">
+        <img src="" alt="" class="add_to_post_image">
+        <input type="file" id="add_to_post_image_input">
+    </div>
+</div>
+
+    <div class="action-button">
+        <div class="interaction-buttons">
+            <span><i class="fa-regular fa-heart"></i></span>
+            <span><i class="fa-regular fa-comment"></i></span>
+            <span><i class="fa-solid fa-share"></i></span>
+        </div>
+        <div class="bookmark">
+            <span><i class="fa-regular fa-bookmark"></i></span>
+        </div>
+    </div>
+    <div class="liked-by">
+        <span><img src="image/profilephoto.jpeg" alt=""></span>
+        <span><img src="image/profilephoto.jpeg" alt=""></span>
+        <span><img src="image/profilephoto.jpeg" alt=""></span>
+        <p>Liked by <b>wonder women</b>,<b>Batman</b> and <b>110 others</b> </p>
+    </div>
+    <div class="caption">
+        <p><b>Deadpool</b>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+        <span class="harsh-tag">
+            #Lifestyle
+        </span>
+        <div class="comments text-muted">
+            View all 20 comments
+        </div>
+    </div>
+</div>
+
+    `;
+
+    node.innerHTML = htmldata;
+    document.querySelector('.feeds').appendChild(node);
+
+    const fileInput = node.querySelector("#add_to_post_image_input");
+    const img = node.querySelector(".add_to_post_image"); // Target the img element
+
+    fileInput.addEventListener('change', (event) => {
+        img.src = URL.createObjectURL(event.target.files[0]); // Set the src attribute of the img element
+    });
+
+    node.querySelector('.delete').addEventListener("click", () => {
+        node.remove();
+    });
+});
+
+//it is that program that show tha image in another div
+
+document.getElementById("add_to_post_gallary").addEventListener('change', (event) => {
+    const display_pic = document.getElementsByClassName("display_pic");
+    display_pic.innerHTML = ""; // Clear previous content
+
+    const img = document.createElement("img");
+    img.src = URL.createObjectURL(event.target.files[0]);
+
+    display_pic.appendChild(img);
+});
+//it is that program that show tha image in another div
+
+//dynamice create post end
+
+
+
+
+
+//change the image of DP help of javascript start
+
+document.querySelector("#profile-picture_image_input").addEventListener("change", a => {
+    const display = document.querySelector("#profile-picture_image");
+
+    // Check if a file is selected
+    if (a.target.files && a.target.files[0]) {
+        const img = document.createElement('img');
+
+
+        img.src = URL.createObjectURL(a.target.files[0]);
+
+        // Clear existing content and append the new image
+        display.innerHTML = "";
+        display.appendChild(img);
+    }
+});
+
+
+//change the image of DP help of javascript end
+
+
+
+
+
+//search box start 
+
+function myfun() {
+    let search_value = document.querySelector("#message-search").value.toUpperCase();
+
+    let messages = document.querySelectorAll('.message');
+
+    for (let i = 0; i < messages.length; i++) {
+        let h5 = messages[i].querySelector('.message-body-text');
+
+        if (h5) {
+            let text = h5.innerText.toUpperCase();
+
+            if (text.indexOf(search_value) > -1) {
+                messages[i].style.display = "";
+            } else {
+                messages[i].style.display = "none";
+            }
+        }
+    }
+}
+
+//search box end
